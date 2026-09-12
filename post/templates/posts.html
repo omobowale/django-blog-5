@@ -1,0 +1,38 @@
+    {% extends 'base.html' %}
+
+
+      {% block title %}
+        Posts
+      {% endblock %}
+
+      {% block pageTitle %}
+        These are my posts
+        {% endblock %}
+        
+        
+        
+        {%  block content %}
+        <a href="{% url 'create_post' %}">Create Post</a>
+
+        <div class="post-list">
+          {% for post in posts %}
+            <div class="post-card">
+              <div class="post-card-body">
+                <p class="post-title">{{ post.title }}</p>
+                <p class="post-content">{{ post.content }}</p>
+              </div>
+
+              <div class="post-actions">
+                <a href="{% url 'single_post' post.id %}"><button class="icon-button" title="View"><i class="fa fa-eye"></i></button></a>
+                <button class="icon-button" title="Edit"><i class="fa fa-pencil"></i></button>
+                <button class="icon-button icon-button-danger" title="Delete"><i class="fa fa-trash"></i></button>
+              </div>
+            </div>
+          {% empty %}
+            <p class="empty-state">No posts yet. Create your first one to get started.</p>
+          {% endfor %}
+        </div>
+
+      {% endblock %}
+
+  

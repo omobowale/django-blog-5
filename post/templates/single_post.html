@@ -1,0 +1,35 @@
+<!doctype html>
+{% load static %}
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="{% static 'js/main.js' %}" defer></script>
+    <title>{{ post.title }}</title>
+
+</head>
+
+<body>
+    <div class="page">
+        <div class="page-header">
+            <a href="{% url 'all_posts' %}"><button class="button-secondary"><i class="fa fa-arrow-left"></i> Back</button></a>
+            <h1 class="page-title">Post</h1>
+        </div>
+
+        <div class="post-card post-detail-card">
+            <div class="post-card-body">
+                <p class="post-title">{{ post.title }}</p>
+                <p class="post-content">{{ post.content }}</p>
+            </div>
+
+            <div class="post-actions">
+                <button class="icon-button" title="Edit"><i class="fa fa-pencil"></i></button>
+                <button class="icon-button icon-button-danger" title="Delete"><i class="fa fa-trash"></i></button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
