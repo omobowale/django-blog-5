@@ -10,7 +10,7 @@ class Command(BaseCommand):
         email = os.environ.get("DJANGO_SUPERUSER_EMAIL")
         password = os.environ.get("DJANGO_SUPERUSER_PASSWORD")
         
-        if not all(username, email, password):
+        if not all([username, email, password]):
             self.stdout.write("Superuser environment variables not configured")
             return
         
